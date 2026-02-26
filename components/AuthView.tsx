@@ -52,7 +52,7 @@ const AuthView: React.FC<AuthViewProps> = ({ onComplete }) => {
     <div className="fixed inset-0 z-[100] bg-[#020617] flex items-center justify-center p-6">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-slate-950 to-pink-900/20" />
       
-      <div className="relative w-full max-w-2xl bg-slate-900 border border-white/5 rounded-[3.5rem] p-10 md:p-16 shadow-2xl shadow-pink-500/5 animate-[zoom-in_0.5s_ease-out]">
+      <div className="relative w-full max-w-2xl bg-slate-900 border border-white/5 rounded-[3.5rem] p-10 md:p-16 shadow-2xl shadow-pink-500/5 animate-[zoom-in_0.5s_ease-out] max-h-[90vh] overflow-y-auto custom-scrollbar">
         {step === 'register' ? (
           <div className="space-y-10">
             <header className="text-center">
