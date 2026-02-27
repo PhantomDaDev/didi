@@ -269,26 +269,29 @@ const App: React.FC = () => {
                     View All
                   </button>
                 )}
-              
-              {activeMood !== 'all' && filteredBooks.length === 0 && activeMoodStories.length === 0 ? (
-                <div className="py-20 text-center bg-white/5 rounded-[3rem] border border-dashed border-white/10">
-                  <span className="text-4xl mb-4 block">🔍</span>
-                  <p className="text-xl font-black text-white/40 italic">No stories matching this specific vibe yet.</p>
-                </div>
-              ) : (
-                shelves.map(theme => {
+              </div>
+
+              <div>
+                {activeMood !== 'all' && filteredBooks.length === 0 && activeMoodStories.length === 0 ? (
+                  <div className="py-20 text-center bg-white/5 rounded-[3rem] border border-dashed border-white/10">
+                    <span className="text-4xl mb-4 block">🔍</span>
+                    <p className="text-xl font-black text-white/40 italic">No stories matching this specific vibe yet.</p>
+                  </div>
+                ) : (
+                  shelves.map(theme => {
                   const themeBooks = getBooksByTheme(theme);
-                  if (activeMood !== 'all' && themeBooks.length === 0) return null;
-                  return (
-                    <Shelf 
-                      key={theme} 
-                      theme={theme} 
-                      books={themeBooks} 
-                      onBookClick={setSelectedBook}
-                    />
-                  );
-                })
-              )}
+                    if (activeMood !== 'all' && themeBooks.length === 0) return null;
+                    return (
+                      <Shelf 
+                        key={theme} 
+                        theme={theme} 
+                        books={themeBooks} 
+                        onBookClick={setSelectedBook}
+                      />
+                    );
+                  })
+                )}
+              </div>
             </section>
           </>
         )}
