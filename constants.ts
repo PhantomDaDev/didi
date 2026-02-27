@@ -146,7 +146,8 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Witty & Refined',
     readCount: '22.1K',
     totalChapters: 15,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
+    tags: [],
   },
   {
     id: 'c-2',
@@ -159,7 +160,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Melancholic & Glamorous',
     readCount: '18.9K',
     totalChapters: 10,
-    readingLevel: 'Standard'
+    readingLevel: 'Standard',
   },
   {
     id: 'c-3',
@@ -172,6 +173,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Emotional & Poetic',
     readCount: '15.4K',
     totalChapters: 12,
+    readingLevel: 'Standard',
   },
   {
     id: 'c-4',
@@ -184,7 +186,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Epic & Intense',
     readCount: '20.3K',
     totalChapters: 20,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: 'c-5',
@@ -197,7 +199,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Grand & Sweeping',
     readCount: '18.5K',
     totalChapters: 25,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: 'c-6',
@@ -210,7 +212,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Emotional & Determined',
     readCount: '22.0K',
     totalChapters: 20,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: 'c-7',
@@ -223,7 +225,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Reflective & Rich',
     readCount: '19.6K',
     totalChapters: 18,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: 'c-8',
@@ -236,7 +238,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Dark & Thought-Provoking',
     readCount: '17.8K',
     totalChapters: 16,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: 'c-9',
@@ -249,7 +251,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Heroic & Timeless',
     readCount: '21.2K',
     totalChapters: 24,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: 'c-10',
@@ -262,7 +264,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Intense & Heroic',
     readCount: '20.7K',
     totalChapters: 22,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: 'c-11',
@@ -275,7 +277,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Passionate & Poetic',
     readCount: '18.9K',
     totalChapters: 23,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: 'c-12',
@@ -288,7 +290,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Chilling & Suspenseful',
     readCount: '16.5K',
     totalChapters: 20,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: '1',
@@ -301,7 +303,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Enchanting & Tense',
     readCount: '45.2K',
     totalChapters: 12,
-    readingLevel: 'Standard'
+    readingLevel: 'Standard',
   },
   {
     id: 'f-2',
@@ -314,6 +316,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Atmospheric & Ethereal',
     readCount: '28.7K',
     totalChapters: 14,
+    readingLevel: 'Standard',
   },
   {
     id: '2',
@@ -326,7 +329,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Electric & Gritty',
     readCount: '12.8K',
     totalChapters: 15,
-    readingLevel: 'Standard'
+    readingLevel: 'Standard',
   },
   {
     id: 's-2',
@@ -339,6 +342,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Cinematic & Fast',
     readCount: '9.2K',
     totalChapters: 18,
+    readingLevel: 'Standard',
   },
   {
     id: 'sh-1',
@@ -351,7 +355,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Intellectual & Tense',
     readCount: '34.5K',
     totalChapters: 8,
-    readingLevel: 'Academic'
+    readingLevel: 'Academic',
   },
   {
     id: 'cr-2',
@@ -364,6 +368,7 @@ export const INITIAL_BOOKS: Book[] = [
     vibe: 'Dark & Gritty',
     readCount: '41.0K',
     totalChapters: 12,
+    readingLevel: 'Standard',
   }
 ];
 
