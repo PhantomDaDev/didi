@@ -1,27 +1,25 @@
 import { GoogleGenAI } from "@google/genai";
 
-export default async function handler(req: Request) {
+export default async function handler(req: any, res: any) {
+
   if (req.method !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
+    return res.status(405).send("Method Not Allowed");
   }
 
   try {
-    const body = await req.json();
-
     const apiKey = process.env.GEMINI_API_KEY;
+
     if (!apiKey) {
-      return new Response(JSON.stringify({ error: "Missing API Key" }), { status: 500 });
+      return res.status(500).json({ error: "Missing API Key" });
     }
 
     const ai = new GoogleGenAI({ apiKey });
 
-    const result = await ai.models.generateContent(body);
+    const result = await ai.models.generateContent(req.body);
 
-    return new Response(JSON.stringify(result), {
-      headers: { "Content-Type": "application/json" }
-    });
+    return res.status(200).json(result);
 
   } catch (err) {
-    return new Response(JSON.stringify({ error: "AI failed" }), { status: 500 });
+    return res.status(500).json({ error: "AI failed" });
   }
 }
