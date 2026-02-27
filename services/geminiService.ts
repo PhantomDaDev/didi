@@ -159,13 +159,30 @@ export async function getWordDefinition(word: string, context: string, level: Re
     return null;
   }
 }
-async function generateBookCover(bookTitle) {
-    // Importing the necessary library
-    const gemini = require('gemini-3-flash-preview');
-
-    // Generating book cover
-    const imageData = await gemini.generateCover({ title: bookTitle });
-
-    // Return image as base64 string or URL
-    return imageData;
+export async function generateBookCover(bookTitle: string): Promise<string | null> {
+  try {
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.0-flash-preview',
+      contents: [
+        {
+          parts: [
+            {
+              text: `Generate a book cover image for a book titled "${bookTitle}". 
+              Make it visually appealing with relevant imagery that matches the title theme. 
+              Return the image as a URL or base64 string.`
+            }
+          ]
+        }
+      ],
+      config: {
+        responseModalities: ['image'],
+      },
+    });
+    
+    const imageData = response.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+    return imageData || null;
+  } catch (error) {
+    console.error("Book cover generation error:", error);
+    return null;
+  }
 }
