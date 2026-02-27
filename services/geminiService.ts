@@ -159,3 +159,13 @@ export async function getWordDefinition(word: string, context: string, level: Re
     return null;
   }
 }
+async function generateBookCover(bookTitle) {
+    // Importing the necessary library
+    const gemini = require('gemini-3-flash-preview');
+
+    // Generating book cover
+    const imageData = await gemini.generateCover({ title: bookTitle });
+
+    // Return image as base64 string or URL
+    return imageData;
+}
