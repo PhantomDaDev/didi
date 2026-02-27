@@ -238,14 +238,14 @@ const App: React.FC = () => {
 
             <MoodSelector activeMood={activeMood} onMoodChange={setActiveMood} />
 
-            {activeMood !== 'all' && activeMoodStories.length > 0 && (
+            {MOOD_STORIES.length > 0 && (
               <section className="mb-16 animate-[fade-in-up_0.6s_ease-out]">
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-3xl font-black tracking-tighter">Handcrafted Mood Matches</h2>
                   <Badge label="New Interactive Starts" icon="💎" />
                 </div>
                 <div className="flex gap-8 overflow-x-auto pb-8 no-scrollbar">
-                  {activeMoodStories.map(story => (
+                  {(activeMood === 'all' ? MOOD_STORIES : activeMoodStories).map(story => (
                     <MoodStoryCard 
                       key={story.id} 
                       story={story} 
@@ -262,11 +262,13 @@ const App: React.FC = () => {
                   {activeMood === 'all' ? 'Your Curated Shelves' : 'Archive Matches'}
                 </h2>
                 {activeMood !== 'all' && (
-                  <button onClick={() => setActiveMood('all')} className="text-xs font-black uppercase text-pink-500 hover:text-pink-400 transition-colors">
-                    Clear Filter
+                  <button 
+                    onClick={() => setActiveMood('all')} 
+                    className="text-xs font-black uppercase text-pink-500 hover:text-pink-400 transition-colors"
+                  >
+                    View All
                   </button>
                 )}
-              </div>
               
               {activeMood !== 'all' && filteredBooks.length === 0 && activeMoodStories.length === 0 ? (
                 <div className="py-20 text-center bg-white/5 rounded-[3rem] border border-dashed border-white/10">
