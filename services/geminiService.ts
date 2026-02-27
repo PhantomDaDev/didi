@@ -1,7 +1,23 @@
 import { GoogleGenAI, Type, Modality } from "@google/genai";
 import { StoryResponse, StoryChapter, ReadingLevel } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// ROTATING KEYS
+const GEMINI_KEYS = [
+  import.meta.env.VITE_GEMINI_KEY_1,
+  import.meta.env.VITE_GEMINI_KEY_2,
+  import.meta.env.VITE_GEMINI_KEY_3,
+];
+
+let currentKeyIndex = 0;
+function getNextKey(): string {
+  const key = GEMINI_KEYS[currentKeyIndex];
+  currentKeyIndex = (currentKeyIndex + 1) % GEMINI_KEYS.length;
+  return key;
+}
+
+function getAIInstance(): GoogleGenAI {
+  return new GoogleGenAI({ apiKey: getNextKey() });
+}
 
 const CLASSIC_INSTRUCTION = `
 STRICT FIDELITY FOR CLASSIC ABRIDGMENTS:
@@ -16,7 +32,7 @@ STRICT FIDELITY FOR CLASSIC ABRIDGMENTS:
 
 export async function generateStoryPreview(title: string, author: string, vibe: string): Promise<StoryResponse> {
   try {
-    const response = await ai.models.generateContent({
+    const response = await getAIInstance().models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Generate an interactive preview for the book "${title}" by ${author}. Vibe: "${vibe}". Provide a snappy summary, a shocking potential plot twist, and a Gen-Z style vibe rating. ${CLASSIC_INSTRUCTION}`,
       config: {
@@ -74,7 +90,7 @@ export async function generateInteractiveChapter(
   }
 
   try {
-    const response = await ai.models.generateContent({
+    const response = await getAIInstance().models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: prompt,
       config: {
@@ -116,7 +132,7 @@ export async function generateInteractiveChapter(
 
 export async function generateChapterAudio(text: string): Promise<string | undefined> {
   try {
-    const response = await ai.models.generateContent({
+    const response = await getAIInstance().models.generateContent({
       model: "gemini-2.5-flash-preview-tts",
       contents: [{ parts: [{ text: `Read this story segment with cinematic narration: ${text}` }] }],
       config: {
@@ -137,7 +153,7 @@ export async function generateChapterAudio(text: string): Promise<string | undef
 
 export async function getWordDefinition(word: string, context: string, level: ReadingLevel): Promise<{ definition: string; example: string } | null> {
   try {
-    const response = await ai.models.generateContent({
+    const response = await getAIInstance().models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Provide a concise, teen-friendly definition for the word "${word}" as used in this context: "${context}". 
       Tailor the tone for a ${level} reading level. Keep it under 25 words.`,
@@ -161,7 +177,7 @@ export async function getWordDefinition(word: string, context: string, level: Re
 }
 export async function generateBookCover(bookTitle: string): Promise<string | null> {
   try {
-    const response = await ai.models.generateContent({
+    const response = await getAIInstance().models.generateContent({
       model: 'gemini-2.0-flash-preview',
       contents: [
         {
