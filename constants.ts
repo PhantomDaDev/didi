@@ -142,7 +142,7 @@ export const INITIAL_BOOKS: Book[] = [
     author: 'Jane Austen',
     description: 'Elizabeth Bennet navigates the complex social codes of Longbourn with razor-sharp wit.',
     theme: 'classics',
-    coverImage: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781471134746/pride-and-prejudice-9781471134746_hr.jpg' //'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop',
+    coverImage: 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781471134746/pride-and-prejudice-9781471134746_hr.jpg', //'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop',
     tags: ['Romance', 'Social Commentary', 'Abridged'],
     vibe: 'Witty & Refined',
     readCount: '22.1K',
